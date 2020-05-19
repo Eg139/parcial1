@@ -1,0 +1,123 @@
+# depslib dependency file v1.0
+1589257174 source:c:\users\nacho\desktop\utn\1er parcial\practica parcial\gets.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	"Validate.h"
+
+1589257183 c:\users\nacho\desktop\utn\1er parcial\practica parcial\gets.h
+
+1588816230 c:\users\nacho\desktop\utn\1er parcial\practica parcial\validate.h
+
+1589229206 source:c:\users\nacho\desktop\utn\1er parcial\practica parcial\validate.c
+	"Validate.h"
+
+1589257569 source:c:\users\nacho\desktop\utn\1er parcial\practica parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"cliente.h"
+	"mascotas.h"
+	"Gets.h"
+	"Validate.h"
+
+1589257764 c:\users\nacho\desktop\utn\1er parcial\practica parcial\cliente.h
+	"mascotas.h"
+
+1589250759 c:\users\nacho\desktop\utn\1er parcial\practica parcial\mascotas.h
+
+1589257880 source:c:\users\nacho\desktop\utn\1er parcial\practica parcial\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	"Validate.h"
+	"cliente.h"
+
+1589257154 source:c:\users\nacho\desktop\utn\1er parcial\practica parcial\mascotas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	"Validate.h"
+	"mascotas.h"
+
+1589287538 source:c:\users\usuario\downloads\practica parcial\gets.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	"Validate.h"
+
+1589257183 c:\users\usuario\downloads\practica parcial\gets.h
+
+1588816230 c:\users\usuario\downloads\practica parcial\validate.h
+
+1589892076 source:c:\users\usuario\downloads\practica parcial\mascotas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	"Validate.h"
+	"mascotas.h"
+	"duenio.h"
+
+1589892087 c:\users\usuario\downloads\practica parcial\mascotas.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	"Validate.h"
+
+1589284964 source:c:\users\usuario\downloads\practica parcial\validate.c
+	"Validate.h"
+
+1589248845 source:c:\users\usuario\downloads\practica parcial\mascota_cliente.c
+	"cliente.h"
+
+1589257764 c:\users\usuario\downloads\practica parcial\cliente.h
+	"mascotas.h"
+
+1589286781 source:c:\users\usuario\downloads\practica parcial\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	"Validate.h"
+	"cliente.h"
+
+1589892113 source:c:\users\usuario\downloads\practica parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Gets.h"
+	"Validate.h"
+	"duenio_mascota.h"
+
+1589860552 source:c:\users\usuario\downloads\practica parcial\duenio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	"Validate.h"
+	"duenio.h"
+	"mascotas.h"
+
+1589843822 c:\users\usuario\downloads\practica parcial\duenio.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"mascotas.h"
+	"Gets.h"
+	"Validate.h"
+
+1589836323 c:\users\usuario\downloads\practica parcial\duenio_mascota.h
+	"mascotas.h"
+	"duenio.h"
+
+1589861141 source:c:\users\usuario\downloads\practica parcial\duenio_mascota.c
+	"duenio_mascota.h"
+
