@@ -10,7 +10,7 @@ typedef struct
 }eDuenioMascota;
 
 void MostrarDuenios_mascota(eMascota listaDeMascotas[], int sizeMascota, eDuenio listaDeDuenio[], int sizeDuenio);
-void mostrarMascotas(eMascota listaDeMascotas[],int sizeMascotas, eDuenio listaDeDuenio[], int sizeDuenio);
+void mostrarMascotas(eMascota listaDeMascotas[],int sizeMascotas,eRaza listaDeRazas[],int sizeRazas, eDuenio listaDeDuenio[], int sizeDuenio);
 void bajaMascota(eMascota listadoDeMascotas[], int len);
 void modificarMascota(eMascota listadoDeMascotas[], int len);
 void bajaDuenio(eDuenio listadoDeDuenios[] ,int sizeDuenio, eMascota listadoDeMascotas[], int sizeMascotas);

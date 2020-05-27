@@ -19,6 +19,7 @@ int InitDuenio(eDuenio listaDeDuenio[],int len)
     return retorno;
 }
 
+
 int BuscarDuenioLibre(eDuenio listaDeDuenio[],int len)
 {
     int i;

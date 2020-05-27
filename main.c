@@ -7,6 +7,7 @@
 #include "duenio_mascota.h"
 #define T 10
 #define M 20
+#define R 15
 #define OCUPADO 1
 
 int main()
@@ -17,9 +18,11 @@ int main()
     int contadorDuenio=0;
     int contadorMascota=0;
 
-    eRaza arrayRaza[M];
+    eRaza arrayRaza[R];
     eDuenio arrayDuenio[T];
     eMascota arrayMascotas[M];
+
+    InitRaza(arrayRaza, R);
     hardcodearRaza(arrayRaza);
 
     InitDuenio(arrayDuenio,T);
@@ -53,7 +56,7 @@ int main()
         printf("16).El promedio de edad entre las mascotas\n");
         printf("17).El promedio de edad entre las mascotas, por tipo\n");
         printf("18).El promedio que tengo entre varones y mujeres de mis clientes\n");
-        printf("19).Mostrar mascotas por sexo");
+        printf("19).Mostrar mascotas por sexo\n");
         printf("20).Salir\n");
         opcion=GetOption("Ingrese una opcion: ");
 
@@ -79,14 +82,14 @@ int main()
             printf("**********************\n");
             printf("*********DUENIOS DISPONIBLES**********\n");
             MostrarDuenios(arrayDuenio, T);
+            mostrarRazas(arrayRaza, R);
             contadorMascota++;
-            CargarMascota(arrayMascotas,M,contadorMascota);
+            CargarMascota(arrayMascotas,M,arrayRaza,R,contadorMascota);
             break;
         case 4:
             system("cls");
             printf("MOSTRAR MASCOTA \n");
-            mostrarRazas(arrayRaza, T);
-            mostrarMascotas(arrayMascotas, M, arrayDuenio, T);
+            mostrarMascotas(arrayMascotas, M,arrayRaza,R, arrayDuenio, T);
             break;
         case 5:
             system("cls");
@@ -96,7 +99,7 @@ int main()
         case 6:
             system("cls");
             printf("Eliminar mascota: \n");
-            mostrarMascotas(arrayMascotas, M, arrayDuenio, T);
+            mostrarMascotas(arrayMascotas, M,arrayRaza,R, arrayDuenio, T);
             bajaMascota(arrayMascotas, M);
             break;
         case 7:
@@ -104,7 +107,7 @@ int main()
             printf("**********************\n");
             printf(">  MODIFICAR MASCOTAS <\n");
             printf("**********************\n");
-            mostrarMascotas(arrayMascotas, M, arrayDuenio, T);
+            mostrarMascotas(arrayMascotas, M,arrayRaza,R, arrayDuenio, T);
             modificarMascota(arrayMascotas, M);
             break;
         case 8:
@@ -121,7 +124,7 @@ int main()
             printf(">    MASCOTAS ORDENADAS POR TIPO   <\n");
             printf("************************************\n");
             ordenarMascotasPorTipo(arrayMascotas, M);
-            mostrarMascotas(arrayMascotas, M, arrayDuenio, T);
+            mostrarMascotas(arrayMascotas, M,arrayRaza,R, arrayDuenio, T);
             break;
         case 10:
             system("cls");
@@ -150,7 +153,7 @@ int main()
             printf("**********************************\n");
             printf(">    MOSTRAR MASCOTAS POR TIPO   <\n");
             printf("**********************************\n");
-            mostrarMascotasTipo(arrayMascotas, M);
+            mostrarMascotasTipo(arrayMascotas, M, arrayRaza, R);
             break;
         case 14:
             system("cls");
@@ -173,7 +176,7 @@ int main()
                 printf("********************************************\n");
                 printf(">    PROMEDIO DE LA EDAD DE LAS MASCOTAS   <\n");
                 printf("********************************************\n");
-                mostrarMascotas(arrayMascotas, M, arrayDuenio, T);
+                mostrarMascotas(arrayMascotas, M,arrayRaza,R, arrayDuenio, T);
                 promedioEdadMascotas(arrayMascotas, M);
             break;
             case 17:

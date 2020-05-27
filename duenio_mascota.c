@@ -17,10 +17,10 @@ void MostrarDuenios_mascota(eMascota listaDeMascotas[], int sizeMascota, eDuenio
             if((listaDeMascotas[j].idDuenio == listaDeDuenio[i].idDuenio) && listaDeMascotas[j].estadoMascota==OCUPADO)
             {
 
-                printf("%4d %15s %15s %15s %15s \t%4d \t%.2f\n",listaDeMascotas[j].idMascota,
+                printf("%4d %15s %15s  %15s \t%4d \t%.2f\n",listaDeMascotas[j].idMascota,
                                                                 listaDeMascotas[j].nombre,
                                                                 listaDeMascotas[j].tipo,
-                                                                listaDeMascotas[j].raza,
+                                                                //listaDeMascotas[j].raza,
                                                                 listaDeMascotas[j].sexo,
                                                                 listaDeMascotas[j].edad,
                                                                 listaDeMascotas[j].peso);
@@ -36,25 +36,35 @@ void MostrarDuenios_mascota(eMascota listaDeMascotas[], int sizeMascota, eDuenio
     }
 
 }
-void mostrarMascotas(eMascota listaDeMascotas[],int sizeMascotas, eDuenio listaDeDuenio[], int sizeDuenio)
+void mostrarMascotas(eMascota listaDeMascotas[],int sizeMascotas,eRaza listaDeRazas[],int sizeRazas, eDuenio listaDeDuenio[], int sizeDuenio)
 {
     int i;
     int j;
-    printf("\nDUENIO      \tIDMASCOTA       NOMBRE          TIPO           RAZA            SEXO     EDAD      PESO\n");
+    int k;
+    printf("\nDUENIO      \tIDMASCOTA       NOMBRE          TIPO        \tRAZA    \tPAIS  \t    SEXO   EDAD  PESO\n");
     for(i=0; i<sizeMascotas; i++)
     {
             for(j = 0; j<sizeDuenio;j++)
             {
                 if((listaDeMascotas[i].idDuenio == listaDeDuenio[j].idDuenio) && (listaDeMascotas[i].estadoMascota == OCUPADO) && (listaDeDuenio[j].estado== OCUPADO))
                 {
-                    printf("%s\t\t %4d %15s %15s %15s %15s %4d \t%.2f\n",listaDeDuenio[j].nombre,
-                                                                        listaDeMascotas[i].idMascota,
-                                                                        listaDeMascotas[i].nombre,
-                                                                        listaDeMascotas[i].tipo,
-                                                                        listaDeMascotas[i].raza,
-                                                                        listaDeMascotas[i].sexo,
-                                                                        listaDeMascotas[i].edad,
-                                                                        listaDeMascotas[i].peso);
+                    for(k = 0; k<sizeMascotas; k++)
+                    {
+                       if(listaDeRazas[k].idRaza == listaDeMascotas[i].idRaza && listaDeRazas[j].estado == OCUPADO)
+                    {
+                       printf("%s\t\t %4d %15s %15s %15s  %15s %10s %4d\t %.2f\n",listaDeDuenio[j].nombre,
+                                                                                listaDeMascotas[i].idMascota,
+                                                                                listaDeMascotas[i].nombre,
+                                                                                listaDeMascotas[i].tipo,
+                                                                                listaDeRazas[k].Nombre,
+                                                                                listaDeRazas[k].Pais,
+                                                                                listaDeMascotas[i].sexo,
+                                                                                listaDeMascotas[i].edad,
+                                                                                listaDeMascotas[i].peso);
+                    }
+                    }
+
+
                 }
             }
 
@@ -110,7 +120,7 @@ void modificarMascota(eMascota listadoDeMascotas[], int len)
             break;
 
           case 3:
-                GetString("Reingrese raza de la Mascota: ", listadoDeMascotas[posicion].raza,len);
+                //GetString("Reingrese raza de la Mascota: ", listadoDeMascotas[posicion].raza,len);
             break;
 
           case 4:
@@ -234,11 +244,11 @@ void mostrarMascotasMayorTresAnios(eMascota listaDeMascotas[],int sizeMascotas, 
             {
                 if((listaDeMascotas[i].idDuenio == listaDeDuenio[j].idDuenio) && (listaDeMascotas[i].estadoMascota == OCUPADO) && (listaDeDuenio[j].estado== OCUPADO)&&(listaDeMascotas[i].edad > 3))
                 {
-                    printf("\n%s\t\t %4d %15s %15s %15s %15s %4d \t%.2f\n",listaDeDuenio[j].nombre,
+                    printf("\n%s\t\t %4d %15s %15s %15s %4d \t%.2f\n",listaDeDuenio[j].nombre,
                                                                         listaDeMascotas[i].idMascota,
                                                                         listaDeMascotas[i].nombre,
                                                                         listaDeMascotas[i].tipo,
-                                                                        listaDeMascotas[i].raza,
+                                                                        //listaDeMascotas[i].raza,
                                                                         listaDeMascotas[i].sexo,
                                                                         listaDeMascotas[i].edad,
                                                                         listaDeMascotas[i].peso);
