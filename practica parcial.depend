@@ -55,7 +55,7 @@
 
 1588816230 c:\users\usuario\downloads\practica parcial\validate.h
 
-1590547776 source:c:\users\usuario\downloads\practica parcial\mascotas.c
+1590601309 source:c:\users\usuario\downloads\practica parcial\mascotas.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -88,7 +88,7 @@
 	"Validate.h"
 	"cliente.h"
 
-1590546877 source:c:\users\usuario\downloads\practica parcial\main.c
+1590608787 source:c:\users\usuario\downloads\practica parcial\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -114,10 +114,10 @@
 	"Gets.h"
 	"Validate.h"
 
-1590544821 c:\users\usuario\downloads\practica parcial\duenio_mascota.h
+1590608765 c:\users\usuario\downloads\practica parcial\duenio_mascota.h
 	"mascotas.h"
 	"duenio.h"
 
-1590546403 source:c:\users\usuario\downloads\practica parcial\duenio_mascota.c
+1590608996 source:c:\users\usuario\downloads\practica parcial\duenio_mascota.c
 	"duenio_mascota.h"
 
