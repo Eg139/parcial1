@@ -30,6 +30,8 @@ void hardCodearDuenio(eDuenio listadoDeDuenio[]);
 void modificarDuenio(eDuenio listadoDeDuenios[], int len);
 int promedioHombresMujeres(eDuenio listadoDeDuenios[], int len);
 
+void menuIndex();
+
 
 
 #endif // CLIENTE_H_INCLUDED

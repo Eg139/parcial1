@@ -39,6 +39,9 @@ int CargarDuenio(eDuenio listaDeDuenio[],int len,int cont)
     int index;
     int retorno=-1;
     index=BuscarDuenioLibre(listaDeDuenio,len);
+    printf("*****************************************************\n");
+    printf("*                    ALTA Duenio                    *\n");
+    printf("*****************************************************\n");
 
     if(index!=-1)
     {
@@ -60,6 +63,9 @@ int CargarDuenio(eDuenio listaDeDuenio[],int len,int cont)
 void MostrarDuenios(eDuenio listaDeDuenio[],int len)
 {
     int i;
+    printf("*****************************************************\n");
+    printf("*                      DUENIOS                      *\n");
+    printf("*****************************************************\n");
 
     printf("IDDUENIO       NOMBRE         APELLIDO        SEXO       EDAD     TELEFONO\n");
     for(i=0; i<len; i++)
@@ -125,25 +131,25 @@ void modificarDuenio(eDuenio listadoDeDuenios[], int len)
      switch(eleccion)
       {
           case 1:
-                    GetString("Reingrese el nombre del duenio: ",listadoDeDuenios[posicion].nombre,len);
+                    GetString("Ingrese el nombre del duenio: ",listadoDeDuenios[posicion].nombre,len);
             break;
 
           case 2:
-                GetString("Reingrese el apellido del duenio: ",listadoDeDuenios[posicion].apellido,len);
+                GetString("Ingrese el apellido del duenio: ",listadoDeDuenios[posicion].apellido,len);
             break;
 
           case 3:
                 do{
-                    GetString("Reingrese el sexo del Duenio HOMBRE o MUJER: ", listadoDeDuenios[posicion].sexo, len);
+                    GetString("Ingrese el sexo del Duenio HOMBRE o MUJER: ", listadoDeDuenios[posicion].sexo, len);
                 }while((strcmpi(listadoDeDuenios[posicion].sexo, "HOMBRE" )!= 0) && (strcmpi(listadoDeDuenios[posicion].sexo, "MUJER" )!= 0));
             break;
 
           case 4:
-                listadoDeDuenios[posicion].edad=GetInt("Reingrese edad del Duenio: ",len);
+                listadoDeDuenios[posicion].edad=GetInt("Ingrese edad del Duenio: ",len);
 
             break;
           case 5:
-              listadoDeDuenios[posicion].telefono=GetInt("Reingrese telefono del Duenio: ", len);
+              listadoDeDuenios[posicion].telefono=GetInt("Ingrese telefono del Duenio: ", len);
             break;
           case 6:
             break;
@@ -162,6 +168,9 @@ int promedioHombresMujeres(eDuenio listadoDeDuenios[], int len)
     int acumuladorMujeres = 0;
     int contador = 0;
     float porcentajeMujeres;
+    printf("**************************************\n");
+    printf("*    PROMEDIO DE HOMBRES Y MUJERES   *\n");
+    printf("**************************************\n");
 
     int index = -1;
     for(i=0; i<len; i++)
@@ -188,4 +197,32 @@ int promedioHombresMujeres(eDuenio listadoDeDuenios[], int len)
 
 
     return index;
+}
+
+
+void menuIndex()
+{
+    printf("******************************************************************\n");
+        printf("*                                 MENU                           *\n");
+        printf("******************************************************************\n");
+        printf("1).Agregar Duenio\n");
+        printf("2).Mostrar Duenio\n");
+        printf("3).Agregar Mascota\n");
+        printf("4).Mostrar Mascota\n");
+        printf("5).Mostrar Duenio con mascotas\n");
+        printf("6).Eliminar Una mascota\n");
+        printf("7).Modificar una mascota\n");
+        printf("8).Borrado de duenio en cascada\n");
+        printf("9).Ordenar las mascotas por tipo y listarlas con sus duenios\n");
+        printf("10).Modificacion Duenio\n");
+        printf("11).Listar los clientes con mas de una mascota\n");
+        printf("12).Listar las mascotas de mas de tres anios, con respectivos duenios.\n");
+        printf("13).Listar las mascotas por un tipo en particular perro,gato,raro\n");
+        printf("14).Ordenar a los duenios por cantidades de mascotas y mostrarlos.\n");
+        printf("15).Ordenar a los duenios por cantidades de mascotas y por orden alfabetico de los nombres y mostrarlos\n");
+        printf("16).El promedio de edad entre las mascotas\n");
+        printf("17).El promedio de edad entre las mascotas, por tipo\n");
+        printf("18).El promedio que tengo entre varones y mujeres de mis clientes\n");
+        printf("19).Mostrar mascotas por sexo\n");
+        printf("20).Salir\n");
 }

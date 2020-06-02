@@ -7,20 +7,7 @@
 #include "duenio.h"
 
 
-void mostrarRazas(eRaza listadoDeRazas[], int len)
-{
-    int i;
-    printf("IDRAZA       NOMBRE         PAIS\n");
-    for(i=0; i<len; i++)
-    {
-        if(listadoDeRazas[i].estado == OCUPADO)
-        {
-         printf("%4d %15s %15s\n",listadoDeRazas[i].idRaza,
-                                    listadoDeRazas[i].Nombre,
-                                    listadoDeRazas[i].Pais);
-        }
-    }
-}
+
 
 
 int InitMascota(eMascota listaDeMascota[],int len)
@@ -34,17 +21,7 @@ int InitMascota(eMascota listaDeMascota[],int len)
     }
     return retorno;
 }
-int InitRaza(eRaza listaDeRazas[],int len)
-{
-    int i;
-    int retorno=-1;
-    for(i=0; i<len; i++)
-    {
-        listaDeRazas[i].estado=LIBRE;
-        retorno=0;
-    }
-    return retorno;
-}
+
 
 int BuscarMascotaLibre(eMascota listaDeMascota[],int len)
 {
@@ -60,72 +37,9 @@ int BuscarMascotaLibre(eMascota listaDeMascota[],int len)
     return retorno;
 }
 
-int CargarMascota(eMascota listaDeMascota[],int len, eRaza listaDeRazas[], int sizeRazas,int cont)
-{
-    int index;
-    int retorno=-1;
-    index=BuscarMascotaLibre(listaDeMascota,len);
-
-    if(index!=-1)
-    {
-        listaDeMascota[index].idDuenio = GetInt("Ingrese el Id del dunio que eligio: ", len);
-        GetString("Ingrese nombre de la Mascota: ",listaDeMascota[index].nombre,len);
-        do{
-            GetString("Ingrese tipo de la Mascota (Perro, Gato, Raro): ",listaDeMascota[index].tipo,len);
-        }while((strcmpi(listaDeMascota[index].tipo, "Perro" )!= 0) && (strcmpi(listaDeMascota[index].tipo, "Gato" )!= 0)&&(strcmpi(listaDeMascota[index].tipo, "Raro" )!= 0));
-
-        if((strcmpi(listaDeMascota[index].tipo, "Perro" )== 0))
-        {
-            do
-            {
-                listaDeMascota[index].idRaza = GetInt("Ingrese el ID de la raza (Pastor, Aleman, Pitbul, Labrador, Buldog): ",sizeRazas);
-
-            }while(listaDeMascota[index].idRaza > 6 || listaDeMascota[index].idRaza < 0);
-
-        }else if((strcmpi(listaDeMascota[index].tipo, "Gato" )== 0))
-        {
-            do
-            {
-                listaDeMascota[index].idRaza = GetInt("Ingrese el ID de la raza (Gato, Persa, Siames): ",sizeRazas);
-
-            }while(listaDeMascota[index].idRaza > 11 || listaDeMascota[index].idRaza < 8);
-
-        }else{
-            do
-            {
-                listaDeMascota[index].idRaza = GetInt("Ingrese el ID de la raza (Overo, Argentina): ",sizeRazas);
-
-            }while(listaDeMascota[index].idRaza > 8 || listaDeMascota[index].idRaza < 6);
-        }
 
 
-        do{
-            GetString("Ingrese el sexo de la mascota MACHO o HEMBRA: ", listaDeMascota[index].sexo, len);
-        }while((strcmpi(listaDeMascota[index].sexo, "MACHO" )!= 0) && (strcmpi(listaDeMascota[index].sexo, "HEMBRA" )!= 0));
-        listaDeMascota[index].edad=GetInt("Ingrese edad de la Mascota: ",len);
-        listaDeMascota[index].peso=GetFloat("Ingrese el peso de la mascota: ");
-        listaDeMascota[index].idMascota=GenerarId(999,cont);
-        listaDeMascota[index].estadoMascota=OCUPADO;
-        retorno=0;
-    }
-    return retorno;
-}
 
-void hardcodearRaza(eRaza listadoDeRazas[])
-{
-    int i;
-    int idRaza[10]={1,2,3,4,5,6,7,8,9,10};
-    char Nombre[10][20]={"Pastor", "Aleman","pitbul","Labrador","Buldog","overo","Argentina","Gato","Persa","Siames"};
-    char Pais[10][20]={"Holanda","ALEMANIA","ARGENTINA","INGLATERRA","ARGENTINA","INGLATERRA","ARGENTINA","INGLATERRA","ARGENTINA","ARGENTINA"};
-
-    for(i=0; i<10; i++)
-  {
-      listadoDeRazas[i].idRaza = idRaza[i];
-      strcpy(listadoDeRazas[i].Pais, Pais[i]);
-      strcpy(listadoDeRazas[i].Nombre, Nombre[i]);
-      listadoDeRazas[i].estado = OCUPADO;
-  }
-}
 void hardCodearMascota(eMascota listadoDeMascotas[])
 {
 int i;
@@ -152,37 +66,7 @@ int idDuenio[11] = {103, 103,100,102,102,104,101,102,100,100,104};
   }
 }
 
-void mostrarMascotasTipo(eMascota listaDeMascotas[],int sizeMascotas, eRaza listaDeRazas[], int sizeRaza)
-{
-    int i;
-    char tipo[20];
-    GetString("elija el tipo de mascota quiere mostrar (PERRO, GATO, RARO): ", tipo, sizeMascotas);
-    while((strcmpi(tipo, "Perro" ) != 0) && (strcmpi(tipo, "Gato" ) != 0) && (strcmpi(tipo, "Raro" ) != 0))
-    {
-        GetString("elija un tipo de mascota valido (PERRO, GATO, RARO): ", tipo, sizeMascotas);
-    }
-    printf("IDMASCOTA       NOMBRE            TIPO             RAZA       PAIS           SEXO   EDAD        PESO\n");
-    for(i=0; i<sizeMascotas; i++)
-    {
-        for(int j = 0;j<sizeRaza; j++){
-        if(listaDeMascotas[i].idRaza == listaDeRazas[j].idRaza && listaDeRazas[j].estado == OCUPADO)
-        {
-            if((strcmpi(listaDeMascotas[i].tipo,tipo ) == 0)&&(listaDeMascotas[i].estadoMascota == OCUPADO))
-        {
-            printf("%4d %15s \t%15s %15s %15s %10s %4d \t%.2f\n",listaDeMascotas[i].idMascota,
-                                                                        listaDeMascotas[i].nombre,
-                                                                        listaDeMascotas[i].tipo,
-                                                                        listaDeRazas[j].Nombre,
-                                                                        listaDeRazas[j].Pais,
-                                                                        listaDeMascotas[i].sexo,
-                                                                        listaDeMascotas[i].edad,
-                                                                        listaDeMascotas[i].peso);
-        }
-        }
-        }
 
-    }
-}
 int promedioEdadMascotas(eMascota listaDeMascotas[],int sizeMascotas)
 {
     int i;
@@ -190,6 +74,9 @@ int promedioEdadMascotas(eMascota listaDeMascotas[],int sizeMascotas)
     int index = -1;
     int acumulador = 0;
     float promedioEdadMascotas;
+    printf("********************************************\n");
+    printf(">    PROMEDIO DE LA EDAD DE LAS MASCOTAS   <\n");
+    printf("********************************************\n");
 
     for(i=0;i<sizeMascotas;i++)
     {
@@ -210,6 +97,9 @@ int promedioEdadMascotas(eMascota listaDeMascotas[],int sizeMascotas)
 
 int promedioMascotasTipo(eMascota listaDeMascotas[],int sizeMascotas)
 {
+    printf("*****************************************************\n");
+    printf("*    PROMEDIO DE EDAD DE LA MASCOTA SEGUN SU TIPO   *\n");
+    printf("*****************************************************\n");
     int i;
     int acumulador = 0;
     int contador = 0;
@@ -247,7 +137,7 @@ void mostrarMascotasSexo(eMascota listaDeMascotas[],int sizeMascotas)
     {
         GetString("elija un sexo valido de la mascota que desea mostrar(MACHO, HEMBRA): ", tipo, sizeMascotas);
     }
-    printf("IDMASCOTA       NOMBRE          TIPO                    SEXO     EDAD      PESO\n");
+    printf("IDMASCOTA       NOMBRE          TIPO    \tSEXO  \tEDAD     PESO\n");
     for(i=0; i<sizeMascotas; i++)
     {
         if((strcmpi(listaDeMascotas[i].sexo,tipo ) == 0)&& (listaDeMascotas[i].estadoMascota == OCUPADO))
