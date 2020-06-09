@@ -6,6 +6,165 @@
 #include "duenio.h"
 #include "mascotas.h"
 
+void ordenarLocalidadNombre(eDuenio listadoDuenio[], int sizeDuenio)
+{
+    int i;
+    int j;
+    eDuenio auxDuenio;
+
+    for(i = 0;i<sizeDuenio-1;i++)
+    {
+        for(j=i+1;j<sizeDuenio;j++)
+        {
+            if(listadoDuenio[i].idLocalidad < listadoDuenio[j].idLocalidad)
+            {
+                auxDuenio = listadoDuenio[i];
+                listadoDuenio[i] = listadoDuenio[j];
+                listadoDuenio[j] = auxDuenio;
+            }
+            else
+            {
+                if(listadoDuenio[i].idLocalidad == listadoDuenio[j].idLocalidad)
+                {
+                    if(strcmpi(listadoDuenio[i].nombre, listadoDuenio[j].nombre)>0)
+                    {
+                    auxDuenio = listadoDuenio[i];
+                    listadoDuenio[i] = listadoDuenio[j];
+                    listadoDuenio[j] = auxDuenio;
+                    }
+
+                        }
+
+                    }
+                }
+            }
+        }
+/*
+void ordenarNombreDuenio_localidad(eDuenio listadoDuenio[], int sizeDuenio,eLocalidad listadoLocalidades[], int sizeLocalidades)
+{
+    int i;
+    int j;
+    int k;
+    int l;
+    eDuenio auxDuenio;
+    eLocalidad auxLocalidad;
+
+    for(i = 0;i<sizeDuenio-1;i++)
+    {
+        for(j=i+1;j<sizeDuenio;j++)
+        {
+            if(strcmpi(listadoDuenio[i].nombre, listadoDuenio[j].nombre)<0)
+            {
+                auxDuenio = listadoDuenio[i];
+                listadoDuenio[i] = listadoDuenio[j];
+                listadoDuenio[j] = auxDuenio;
+            }
+            else
+            {
+                if(strcmpi(listadoDuenio[i].nombre, listadoDuenio[j].nombre)==0)
+                {
+                    for(k=0;k<sizeLocalidades-1;k++)
+                    {
+                        for(l=k+1;k<sizeLocalidades;k++)
+                        {
+                            if(listadoLocalidades[k].estado==OCUPADO&&strcmpi(listadoLocalidades[k].descripcion, listadoLocalidades[l].descripcion)>0)
+                            {
+                            auxLocalidad = listadoLocalidades[k];
+                            listadoLocalidades[k] = listadoLocalidades[l];
+                            listadoLocalidades[l] = auxLocalidad;
+                            }
+
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}*/
+
+void MostrarDueniosPorLocalidad(eDuenio listaDeDuenios[],int sizeDuenio, eLocalidad listaDeLocalidades[], int sizeLocalidades)
+{
+    int i;
+    char localidad[20];
+    printf("**********************************\n");
+    printf(">    MOSTRAR DUENIOS POR TIPO   <\n");
+    printf("**********************************\n");
+
+    GetString("elija la localidad que quiere mostrar (QUILMES, ROSARIO, SANTA ROSA): ", localidad, sizeLocalidades);
+    while((strcmpi(localidad, "QUILMES" ) != 0) && (strcmpi(localidad, "ROSARIO" ) != 0) && (strcmpi(localidad, "SANTA ROSA" ) != 0))
+    {
+        GetString("elija una localidad valida para mostrar (QUILMES, ROSARIO, SANTA ROSA): ", localidad, sizeLocalidades);
+    }
+
+    printf("IDDUENIO       NOMBRE         APELLIDO        SEXO       EDAD     TELEFONO\t\tPROVINCIA  \tDESCRIPCION  \tC POSTAL\n");
+    for(i=0; i<sizeDuenio; i++)
+    {
+        for(int j = 0;j<sizeLocalidades; j++)
+            {
+                if(listaDeDuenios[i].idLocalidad == listaDeLocalidades[j].idLocalidad && listaDeDuenios[j].estado == OCUPADO)
+                {
+                    if(strcmpi(listaDeLocalidades[j].descripcion,localidad ) == 0)
+                {
+                    printf("%4d %15s %15s %15s\t %4d \t%4d  \t%15s %15s \t%5d\n",listaDeDuenios[i].idDuenio,
+                                                                                listaDeDuenios[i].nombre,
+                                                                                listaDeDuenios[i].apellido,
+                                                                                listaDeDuenios[i].sexo,
+                                                                                listaDeDuenios[i].edad,
+                                                                                listaDeDuenios[i].telefono,
+                                                                                listaDeLocalidades[j].provincia,
+                                                                                listaDeLocalidades[j].descripcion,
+                                                                                listaDeLocalidades[j].codigoPostal);
+                }
+            }
+        }
+
+    }
+}
+
+void mostrarLocalidades(eLocalidad listadoLocales[], int len)
+{
+    printf("IDLOCALIDAD     \tPROVINCIA  \tDESCRIPCION  \tC POSTAL\n");
+    for(int i = 0; i<len; i++)
+    {
+        if(listadoLocales[i].estado==OCUPADO)
+        {
+            printf("%4d    \t%15s %15s \t%5d\n",listadoLocales[i].idLocalidad,
+                                       listadoLocales[i].provincia,
+                                       listadoLocales[i].descripcion,
+                                       listadoLocales[i].codigoPostal);
+        }
+    }
+}
+void hardCodearLocalidad(eLocalidad listadoDeLocalidades[])
+{
+    int i;
+    int idLocalidad[3]={1,2,3};
+    char provincia[3][20]={"Buenos Aires","Santa Fe","La Pampa"};
+    char descripcion[3][20]={"Quilmes","Rosario","Santa Rosa"};
+    int codigoPostal[3]={1111,2222,3333};
+
+    for(i=0; i<3; i++)
+  {
+      listadoDeLocalidades[i].idLocalidad = idLocalidad[i];
+      strcpy(listadoDeLocalidades[i].provincia, provincia[i]);
+      strcpy(listadoDeLocalidades[i].descripcion, descripcion[i]);
+      listadoDeLocalidades[i].codigoPostal = codigoPostal[i];
+      listadoDeLocalidades[i].estado = OCUPADO;
+  }
+}
+int InitLocalidad(eLocalidad listaLocales[],int len)
+{
+    int i;
+    int retorno=-1;
+    for(i=0; i<len; i++)
+    {
+        listaLocales[i].estado=LIBRE;
+        retorno=0;
+    }
+    return retorno;
+}
+
 
 int InitDuenio(eDuenio listaDeDuenio[],int len)
 {
@@ -34,7 +193,7 @@ int BuscarDuenioLibre(eDuenio listaDeDuenio[],int len)
     return retorno;
 }
 
-int CargarDuenio(eDuenio listaDeDuenio[],int len,int cont)
+int CargarDuenio(eDuenio listaDeDuenio[],int len,int cont, eLocalidad listadoLocalidades[],int sizeLocalidades)
 {
     int index;
     int retorno=-1;
@@ -42,6 +201,7 @@ int CargarDuenio(eDuenio listaDeDuenio[],int len,int cont)
     printf("*****************************************************\n");
     printf("*                    ALTA Duenio                    *\n");
     printf("*****************************************************\n");
+    mostrarLocalidades(listadoLocalidades,sizeLocalidades);
 
     if(index!=-1)
     {
@@ -53,6 +213,10 @@ int CargarDuenio(eDuenio listaDeDuenio[],int len,int cont)
 
         listaDeDuenio[index].edad=GetInt("Ingrese edad del Duenio: ",len);
         listaDeDuenio[index].telefono=GetInt("Ingrese telefono del Duenio: ", len);
+        do
+        {
+            listaDeDuenio[index].idLocalidad=GetInt("Ingrese el ID de la localidad: ", len);
+        }while(listaDeDuenio[index].idLocalidad < 1 || listaDeDuenio[index].idLocalidad > 3);
         listaDeDuenio[index].idDuenio=GenerarId(99,cont);
         listaDeDuenio[index].estado=OCUPADO;
         retorno=0;
@@ -60,25 +224,33 @@ int CargarDuenio(eDuenio listaDeDuenio[],int len,int cont)
     return retorno;
 }
 
-void MostrarDuenios(eDuenio listaDeDuenio[],int len)
+void MostrarDuenios(eDuenio listaDeDuenio[],int len, eLocalidad listaDeLocalidades[],int sizeLocalidad)
 {
     int i;
+    int j;
     printf("*****************************************************\n");
     printf("*                      DUENIOS                      *\n");
     printf("*****************************************************\n");
 
-    printf("IDDUENIO       NOMBRE         APELLIDO        SEXO       EDAD     TELEFONO\n");
+    printf("IDDUENIO       NOMBRE         APELLIDO        SEXO       EDAD     TELEFONO\t\tPROVINCIA  \tDESCRIPCION  \tC POSTAL\n");
     for(i=0; i<len; i++)
     {
         if(listaDeDuenio[i].estado==OCUPADO)
         {
-            printf("%4d %15s %15s %15s\t %4d \t%4d\n",listaDeDuenio[i].idDuenio,
-                                                        listaDeDuenio[i].nombre,
-                                                        listaDeDuenio[i].apellido,
-                                                        listaDeDuenio[i].sexo,
-                                                        listaDeDuenio[i].edad,
-                                                        listaDeDuenio[i].telefono);
+            for(j=0; j<sizeLocalidad; j++)
+            {
+                if(listaDeDuenio[i].idLocalidad==listaDeLocalidades[j].idLocalidad)
+                printf("%4d %15s %15s %15s\t %4d \t%4d  \t%15s %15s \t%5d\n",listaDeDuenio[i].idDuenio,
+                                                            listaDeDuenio[i].nombre,
+                                                            listaDeDuenio[i].apellido,
+                                                            listaDeDuenio[i].sexo,
+                                                            listaDeDuenio[i].edad,
+                                                            listaDeDuenio[i].telefono,
+                                                            listaDeLocalidades[j].provincia,
+                                                            listaDeLocalidades[j].descripcion,
+                                                            listaDeLocalidades[j].codigoPostal);
 
+            }
         }
     }
 }
@@ -92,6 +264,7 @@ char sexo[5][8]={"HOMBRE","HOMBRE","HOMBRE","MUJER","MUJER"};
 int edad[5]={44,5,20,18,10};
 int telefono[5]={1169541747, 1154879298, 115102098, 1153019298, 1154719298};
 int idDuenio[5]= {100, 101,102,103,104};
+int idLocalidad[5] = {1,2,3,1,1};
 int i;
   for(i=0; i<5; i++)
   {
@@ -101,6 +274,7 @@ int i;
       strcpy(listadoDeDuenio[i].sexo, sexo[i]);
       listadoDeDuenio[i].edad= edad[i];
       listadoDeDuenio[i].telefono = telefono[i];
+      listadoDeDuenio[i].idLocalidad = idLocalidad[i];
       listadoDeDuenio[i].estado = OCUPADO;
 
   }
@@ -161,7 +335,7 @@ void modificarDuenio(eDuenio listadoDeDuenios[], int len)
 }
 
 
-int promedioHombresMujeres(eDuenio listadoDeDuenios[], int len)
+int porcentajeMujeres(eDuenio listadoDeDuenios[], int len)
 {
     int i;
     int acumuladorHombres = 0;
@@ -223,6 +397,9 @@ void menuIndex()
         printf("16).El promedio de edad entre las mascotas\n");
         printf("17).El promedio de edad entre las mascotas, por tipo\n");
         printf("18).El promedio que tengo entre varones y mujeres de mis clientes\n");
-        printf("19).Mostrar mascotas por sexo\n");
-        printf("20).Salir\n");
+        printf("19).Listar duenios con su localidad que tienen dos mascotas del mismo tipo\n");
+        printf("20).Seleccionar localidad y mostrar duenios de esa localidad\n");
+        printf("21).Ordenar por localidad y por nombre del duenio\n");
+        printf("22).Salir\n");
 }
+

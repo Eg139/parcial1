@@ -88,7 +88,7 @@
 	"Validate.h"
 	"cliente.h"
 
-1591058794 source:c:\users\usuario\downloads\practica parcial\main.c
+1591059141 source:c:\users\usuario\downloads\practica parcial\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -97,7 +97,7 @@
 	"Validate.h"
 	"duenio_mascota.h"
 
-1591057732 source:c:\users\usuario\downloads\practica parcial\duenio.c
+1591059052 source:c:\users\usuario\downloads\practica parcial\duenio.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -119,7 +119,7 @@
 	"duenio.h"
 	"raza.h"
 
-1591058646 source:c:\users\usuario\downloads\practica parcial\duenio_mascota.c
+1591058988 source:c:\users\usuario\downloads\practica parcial\duenio_mascota.c
 	"duenio_mascota.h"
 
 1590763455 c:\users\usuario\downloads\practica parcial\raza.h
@@ -131,4 +131,78 @@
 	"Gets.h"
 	"Validate.h"
 	"raza.h"
+
+1591675545 source:c:\users\usuario\documents\ejercicio clase\preparacionparcial\practica parcial\duenio_mascota.c
+	"duenio_mascota.h"
+
+1591673445 c:\users\usuario\documents\ejercicio clase\preparacionparcial\practica parcial\duenio_mascota.h
+	"mascotas.h"
+	"duenio.h"
+	"raza.h"
+
+1590763613 c:\users\usuario\documents\ejercicio clase\preparacionparcial\practica parcial\mascotas.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	"Validate.h"
+
+1589257183 c:\users\usuario\documents\ejercicio clase\preparacionparcial\practica parcial\gets.h
+
+1588816230 c:\users\usuario\documents\ejercicio clase\preparacionparcial\practica parcial\validate.h
+
+1591708015 c:\users\usuario\documents\ejercicio clase\preparacionparcial\practica parcial\duenio.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"mascotas.h"
+	"Gets.h"
+	"Validate.h"
+
+1590763455 c:\users\usuario\documents\ejercicio clase\preparacionparcial\practica parcial\raza.h
+
+1589287538 source:c:\users\usuario\documents\ejercicio clase\preparacionparcial\practica parcial\gets.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	"Validate.h"
+
+1591707408 source:c:\users\usuario\documents\ejercicio clase\preparacionparcial\practica parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Gets.h"
+	"Validate.h"
+	"duenio_mascota.h"
+
+1591058296 source:c:\users\usuario\documents\ejercicio clase\preparacionparcial\practica parcial\mascotas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	"Validate.h"
+	"mascotas.h"
+	"duenio.h"
+
+1590763763 source:c:\users\usuario\documents\ejercicio clase\preparacionparcial\practica parcial\raza.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	"Validate.h"
+	"raza.h"
+
+1589284964 source:c:\users\usuario\documents\ejercicio clase\preparacionparcial\practica parcial\validate.c
+	"Validate.h"
+
+1591707355 source:c:\users\usuario\documents\ejercicio clase\preparacionparcial\practica parcial\duenio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	"Validate.h"
+	"duenio.h"
+	"mascotas.h"
 

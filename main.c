@@ -5,6 +5,7 @@
 #include "Gets.h"
 #include "Validate.h"
 #include "duenio_mascota.h"
+#define L 3
 #define T 10
 #define M 20
 #define R 15
@@ -20,6 +21,7 @@ int main()
 
     eRaza arrayRaza[R];
     eDuenio arrayDuenio[T];
+    eLocalidad arrayLocalidad[L];
     eMascota arrayMascotas[M];
 
     InitRaza(arrayRaza, R);
@@ -33,6 +35,9 @@ int main()
     hardCodearMascota(arrayMascotas);
     contadorMascota = 11;
 
+    InitLocalidad(arrayLocalidad,L);
+    hardCodearLocalidad(arrayLocalidad);
+
     do
     {
         menuIndex();
@@ -43,15 +48,22 @@ int main()
         case 1:
             system("cls");
             contadorDuenio++;
-            CargarDuenio(arrayDuenio,T,contadorDuenio);
+            if(CargarDuenio(arrayDuenio,T,contadorDuenio,arrayLocalidad,L) == 0)
+            {
+                printf("Se ingreso correctamente al duenio\n");
+            }else
+            {
+                printf("No hay lugar disponible\n");
+            }
+
             break;
         case 2:
             system("cls");
-            MostrarDuenios(arrayDuenio,T);
+            MostrarDuenios(arrayDuenio,T,arrayLocalidad,L);
             break;
         case 3:
             system("cls");
-            MostrarDuenios(arrayDuenio, T);
+            MostrarDuenios(arrayDuenio,T,arrayLocalidad,L);
             mostrarRazas(arrayRaza, R);
             contadorMascota++;
             CargarMascota(arrayMascotas,M,arrayRaza,R,contadorMascota);
@@ -64,7 +76,7 @@ int main()
         case 5:
             system("cls");
             printf("Duenios CON MASCOTAS\n");
-            MostrarDuenios_mascota(arrayMascotas, M, arrayDuenio,T);
+            MostrarDuenios_mascota(arrayMascotas, M, arrayDuenio,T, arrayLocalidad, L);
             break;
         case 6:
             system("cls");
@@ -78,14 +90,14 @@ int main()
             printf("*  MODIFICAR MASCOTAS *\n");
             printf("***********************\n");
             mostrarMascotas(arrayMascotas, M,arrayRaza,R, arrayDuenio, T);
-            modificarMascota(arrayMascotas, M, arrayDuenio, T);
+            modificarMascota(arrayMascotas, M, arrayDuenio, T, arrayLocalidad, L);
             break;
         case 8:
             system("cls");
             printf("**********************\n");
             printf("*    BAJA DE DUENIO  *\n");
             printf("**********************\n");
-            MostrarDuenios(arrayDuenio,T);
+            MostrarDuenios(arrayDuenio,T,arrayLocalidad,L);
             bajaDuenio(arrayDuenio, T, arrayMascotas, M);
             break;
         case 9:
@@ -101,7 +113,7 @@ int main()
             printf("***********************\n");
             printf("*    MODIFICAR DUENIO *\n");
             printf("***********************\n");
-            MostrarDuenios(arrayDuenio,T);
+            MostrarDuenios(arrayDuenio,T,arrayLocalidad,L);
             modificarDuenio(arrayDuenio, T);
             break;
         case 11:
@@ -134,19 +146,29 @@ int main()
             break;
             case 18:
                 system("cls");
-                promedioHombresMujeres(arrayDuenio, T);
+                porcentajeMujeres(arrayDuenio, T);
             break;
             case 19:
-                system("cls");
-                mostrarMascotasSexo(arrayMascotas, M);
-                break;
-        case 20:
+            system("cls");
+            dueniosConMasDeUnaMascota(arrayMascotas,M,arrayDuenio,T,arrayLocalidad,L);
+            break;
+            case 20:
+            system("cls");
+            MostrarDueniosPorLocalidad(arrayDuenio,T,arrayLocalidad,L);
+            break;
+            case 21:
+            system("cls");
+            ordenarLocalidadNombre(arrayDuenio,T);
+            //ordenarNombreDuenio_localidad(arrayDuenio,T,arrayLocalidad,L);
+            MostrarDuenios(arrayDuenio,T,arrayLocalidad,L);
+            break;
+        case 22:
             aux=GetChar("\nSeguro desea salir? (s/n): ");
             salir=tolower(aux);
             if(salir=='s')
             {
                 printf("\nSalida con exito\n\n\n");
-                opcion=20;
+                opcion=22;
             }
             else
             {
@@ -158,7 +180,7 @@ int main()
         system("cls");
 
     }
-    while(opcion!=20);
+    while(opcion!=22);
 
     return 0;
 }

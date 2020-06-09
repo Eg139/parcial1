@@ -8,12 +8,13 @@ typedef struct
 {
   int idDuenio;//PK
   int cantMascota;
+  char tipo[20];
 }eDuenioMascota;
 
-void MostrarDuenios_mascota(eMascota listaDeMascotas[], int sizeMascota, eDuenio listaDeDuenio[], int sizeDuenio);
+void MostrarDuenios_mascota(eMascota listaDeMascotas[], int sizeMascota, eDuenio listaDeDuenio[], int sizeDuenio,eLocalidad localidades[],int sizeLocal);
 void mostrarMascotas(eMascota listaDeMascotas[],int sizeMascotas,eRaza listaDeRazas[],int sizeRazas, eDuenio listaDeDuenio[], int sizeDuenio);
 void bajaMascota(eMascota listadoDeMascotas[], int len);
-void modificarMascota(eMascota listadoDeMascotas[], int len, eDuenio listadoDeDuenios[], int sizeDuenio);
+void modificarMascota(eMascota listadoDeMascotas[], int len, eDuenio listadoDeDuenios[], int sizeDuenio, eLocalidad listadoLocalidad[], int sizeLocalidad);
 void bajaDuenio(eDuenio listadoDeDuenios[] ,int sizeDuenio, eMascota listadoDeMascotas[], int sizeMascotas);
 void ordenarMascotasPorTipo(eMascota listadoDeMascotas[], int len);
 void listarClientesConMasDeUnaMascota(eMascota listadoDeMascotas[], int sizeMascotas, eDuenio listadoDeDuenio[], int sizeDuenio);
@@ -25,7 +26,7 @@ int CargarMascota(eMascota listaDeMascota[],int len, eRaza listaDeRazas[], int s
 void mostrarMascotasTipo(eMascota listaDeMascotas[],int sizeMascotas,eRaza listaDeRazas[], int sizeRaza);
 
 
-
+void dueniosConMasDeUnaMascota(eMascota listadoDeMascotas[], int sizeMascotas, eDuenio listadoDeDuenio[], int sizeDuenio,eLocalidad listaDeLocalidades[],int sizeLocalidad);
 
 
 
